@@ -2,6 +2,17 @@
 <h1>React_Study</h1>
 </div>
 
+<div align="left">
+  
+  <ol>
+    <h3>React 공부 이유</h3>
+    <li>1인 프로젝트를 위한 기초 다지기</li>
+    <li>Front-End의 기초 지식</li>
+  </ol>
+</div>
+
+<hr/>
+
 <nav align="left">
   <ol>
     참고 자료
