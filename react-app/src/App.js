@@ -33,14 +33,30 @@ function Nav(props) {
 function Article(props) {
   return <article>
     <h2>{props.title}</h2>
-    {props.body}<br/>
-        {/* 사용자 정의 태그 첫 글자는 반드시 대문자 사용해야 된다.<br/>
-        리액트에서는 사용자 정의 = 컴퍼넌트<br/>
-
-        리액트의 개인적인 생각<br/>
-        - 리액트는 프론트앤드 소스코드를 객채화 시켜 사용 할 수 있게 만든 언어 이며 기반은 JavaScript이다.<br/>
-        - 객채화 시킨 코드이므로 수정 및 유지보수에 용이하다.<br/> */}
+    {props.body}
       </article>
+}
+
+function Item(props) {
+  const itemList = [
+    {keyCode:1000, category:1, item: '- JavaScript 기반의 라이브러리로 2013 FaceBook에서 개발하였다.'},
+    {keyCode:2000, category:2, item: '- 사용자 정의 = 컴퍼넌트 = function'},
+    {keyCode:2001, category:2, item: '- 사용자 정의 태그 첫 글자는 반드시 대문자 사용해야 된다.'},
+    {keyCode:3000, category:3, item: '- 리액트는 프론트앤드 소스코드를 객채화 시켜 사용 할 수 있게 만든 언어 이며'},
+    {keyCode:3001, category:3, item: '- 객채화 시킨 코드이므로 수정 및 유지보수에 용이하다.'}
+  ]
+  const item = []
+  let keyCode = null;
+  for (let i = 0; i < itemList.length; i++){
+        if (itemList[i].category === props.num) {
+        keyCode = itemList[i].keyCode;
+        item.push(<p key={keyCode}> {itemList[i].item}</p>)
+    }
+  }
+
+  return <div key={keyCode}>
+    {item}
+  </div>
 }
 
 function App() {
@@ -54,18 +70,22 @@ function App() {
     {id:2, title:'React 공부 정리', body:'React 공부 정리'},
     {id:3, title:'개인적인 생각', body:'개인적인 생각'}
   ]
-  let content = null;
+  let content, item = null;
   if (mode === 'WELCOME') {
     content = <Article title="React" body="Hello, WEB"></Article>
   } else if (mode === 'READ') {
-    let title, body = null;
+    let title, body, num = null;
     for (let i = 0; i < topics.length; i++){
       if (topics[i].id === id) {
         title = topics[i].title;
         body = topics[i].body;
+        num = id;
       }
     }
-    content = <Article title={title} body={body}></Article>
+
+
+    content = <Article title={title} body={body} ></Article>
+    item = <Item num={num}></Item>
   }
   return (
     <div>
@@ -80,6 +100,7 @@ function App() {
       }}></Nav>
       
       {content}
+      {item}
     </div>
   );
 }
