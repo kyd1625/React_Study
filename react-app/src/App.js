@@ -42,7 +42,7 @@ function Item(props) {
     {keyCode:1000, category:1, item: '- JavaScript 기반의 라이브러리로 2013 FaceBook에서 개발하였다.'},
     {keyCode:2000, category:2, item: '- 사용자 정의 = 컴퍼넌트 = function'},
     {keyCode:2001, category:2, item: '- 사용자 정의 태그 첫 글자는 반드시 대문자 사용해야 된다.'},
-    {keyCode:3000, category:3, item: '- 리액트는 프론트앤드 소스코드를 객채화 시켜 사용 할 수 있게 만든 라이브러리 이다'},
+    {keyCode:3000, category:3, item: '- 리액트는 프론트앤드 소스코드를 객채화 시켜 사용 할 수 있게 만든 라이브러리이다'},
     {keyCode:3001, category:3, item: '- 객채화 시킨 코드이므로 수정 및 유지보수에 용이하다.'}
   ]
   const item = []
